@@ -14,7 +14,7 @@ public class While_4 {
 		
 		while(true) {
 			System.out.print("구구단 시작(1), 채점(2), 종료(0) : ");
-			// 수정
+			// 수정  
 			int choiceNum = s.nextInt();			
 			if(choiceNum == 1) {
 				System.out.print("문제 개수를 입력하세요 : ");
