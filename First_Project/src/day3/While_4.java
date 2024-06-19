@@ -11,10 +11,11 @@ public class While_4 {
 		Random ran = new Random();		
 		int qesNum = 0;
 		int score = 0;
+		int score2 = 0;
 		
 		while(true) {
 			System.out.print("구구단 시작(1), 채점(2), 종료(0) : ");
-			// 수정  
+			// 수정
 			int choiceNum = s.nextInt();			
 			if(choiceNum == 1) {
 				System.out.print("문제 개수를 입력하세요 : ");
@@ -31,16 +32,25 @@ public class While_4 {
 						System.out.println("정답");
 						score++;
 					} else {
-						System.out.println("오답");
+						while(true) {
+							System.out.println("오답, 다시 풀어보시겠습니까?");
+							int answer2 = s.nextInt();
+							if(x*y == answer2) {
+								score2++;
+								break;
+							}
+						}
 					}
 				}			
 			} else if(choiceNum == 2) {
-				System.out.println("현재까지 " + qesNum + "문제 중에 " + score + "문제 맞추셨습니다.");
+				System.out.println("현재까지 " + qesNum + "문제 중에 " + score + "문제 맞추셨습니다. 재풀이 문제는 총 " + score2 + "문제입니다.");
 			} else if(choiceNum == 0) {
 				// 종료
 				System.out.println("종료되었습니다.");
 				break;
-			}			
+			} else {
+				System.out.println("잘못 된 숫자입니다.");
+			}	
 		}
 	}
 
