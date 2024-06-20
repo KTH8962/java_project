@@ -58,7 +58,11 @@ public class Day3_Test {
 		
 		// 5. 1부터 30까지 10~19의 숫자를 제외하고 화면에 출력하시오.
 		// (ex, 1 2 3 4 5 6 7 8 9 20 21 22 ... 30)
-		/*for(int i = 1; i <= 30; i++) {
+		/*if(i >= 10 && i < 20) {
+			continue;
+		}
+		System.out.println(i);
+		for(int i = 1; i <= 30; i++) {
 			if(i < 10 || i > 19) {
 				System.out.println(i);
 			}
@@ -68,9 +72,11 @@ public class Day3_Test {
 		// 단, 4단과 8단은 출력하지 말 것.
 		int i = 2;
 		while (i <= 9) {
-			int j = 1;
+			// if(i % 4 == 0 ) {i++;}
+			// if(i == 4 || i == 8) {continue;}
 			if(i != 4 && i != 8) {				
 				System.out.println("---" + i + "단 ---");
+				int j = 1;
 				while (j <= 9) {
 					System.out.println(i + " * " + j + " = " + (i * j));
 					j++;

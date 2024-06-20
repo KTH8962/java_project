@@ -13,7 +13,11 @@ public class Test3 {
 		System.out.print("두 번째 수 입력 : ");
 		int y = s.nextInt();
 		
-		if(x+y > 10) {
+		// 삼항연산자 (if ~ else 쉽게)
+		//String txt = x+y >= 10 ? "큰 수" : "작은 수";
+		//System.out.println(txt);
+		
+		if(x+y >= 10) {
 			System.out.println("큰 수");
 		} else {
 			System.out.println("작은 수");
