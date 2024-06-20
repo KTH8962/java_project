@@ -14,15 +14,10 @@ public class Array_11 {
 		for(int i=0; i<arr.length; i++) {
 			if(arr[maxIndex] < arr[i]) {
 				maxIndex = i;
-			} else {
-				minIndex = i;
-			}
-			/*if(arr[maxIndex] < arr[i]) {
-				maxIndex = i;
 			}
 			if(arr[minIndex] > arr[i]) {
 				minIndex = i;
-			}*/
+			}
 		}
 		
 		temp = arr[maxIndex];
