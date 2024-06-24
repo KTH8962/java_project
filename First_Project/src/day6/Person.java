@@ -5,10 +5,9 @@ public class Person {
 	private int age;
 	private String phone;
 	
-	Person(String phone) {
-		name = "홍길동";
-		age = 20;
-		this.phone = phone;
+	Person(String name, int age) {
+		this.name = name;
+		this.age = age;
 	}
 
 	public String getName() {

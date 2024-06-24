@@ -11,6 +11,8 @@ public class MainArray {
 		TestArray.changeArray(arr);
 		System.out.println(Arrays.toString(arr));
 		
+		TestArrayHome.changeArray(arr);
+		System.out.println(Arrays.toString(arr));
 	}
 
 }
