@@ -4,8 +4,10 @@ public class MultipleCalcClass {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(MultipleCalc.multiple(3, 5));
-		System.out.println(MultipleCalc.multiple(2, 3, 4));
+		int a = MultipleCalc2.multiple(2, 4);
+		int b = MultipleCalc2.multiple(2, 3, 4);
+		System.out.println(a);
+		System.out.println(b);
 	}
 
 }
