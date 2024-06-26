@@ -1,14 +1,17 @@
 package day7;
 
 public class ColorPoint extends Point {
-	String color;
+	private String color;
 	ColorPoint() {
-		super(0, 0);
-		color = "BLACK";
+		this(0, 0, "BLACK");
+		//super(0, 0);
+		//color = "BLACK";
 	}
 	
 	ColorPoint(int x, int y) {
-		super(x, y);
+		this(x, y, "BLACK");
+		//super(x, y);
+		//color = "BLACK";
 	}
 	
 	ColorPoint(int x, int y, String color) {

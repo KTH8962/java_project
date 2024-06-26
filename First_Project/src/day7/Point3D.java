@@ -1,7 +1,7 @@
 package day7;
 
 public class Point3D extends Point{
-	int z;
+	private int z;
 	
 	Point3D(int x, int y, int z) {
 		super(x, y);
