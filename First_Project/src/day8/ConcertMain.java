@@ -21,27 +21,34 @@ public class ConcertMain {
 				case 1 : {
 					System.out.print("S(1), A(2), B(3) >> ");
 					int selTable = scan.nextInt()-1;
-					Concert.table(selTable);
+					con.table(selTable);
 					
 					System.out.print("이름을 입력하세요 : ");
 					String name = scan.next();
 					
 					
 					System.out.print("번호를 입력하세요 : ");
-					int tableNum = scan.nextInt();
+					int tableNum = scan.nextInt()-1;
 					
 					con.reservation(selTable, name, tableNum);
 					
 					break;
 				}
 				case 2 : {
-					for(int i = 0; i < Concert.getTableSize(); i++) {
-						Concert.table(i);
+					for(int i = 0; i < con.getTableSize(); i++) {
+						con.table(i);
 					}
 					break;
 				}
 				case 3 : {
-					System.out.println("취소");
+					System.out.print("좌석 S:1, A:2, B:3 >> ");
+					int selTable = scan.nextInt()-1;
+					con.table(selTable);
+					
+					System.out.print("이름을 입력하세요 : ");
+					String name = scan.next();
+					
+					con.cancel(selTable, name);
 					break;
 				}
 				case 4 : {

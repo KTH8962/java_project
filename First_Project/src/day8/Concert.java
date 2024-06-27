@@ -15,11 +15,11 @@ public class Concert {
 		}
 	};
 	
-	static int getTableSize() {
+	int getTableSize() {
 		return arr.length;
 	}
 	
-	static String table(int num) {
+	String table(int num) {
 		System.out.print(tableName[num] + ">> ");
 		for(int i = 0; i < arr[num].length; i++) {
 			System.out.print(arr[num][i] + " ");
@@ -28,13 +28,25 @@ public class Concert {
 		return table;
 	}
 	
-	void reservation(int table, String name, int tableNum) {
-		table = table - 1;
-		tableNum = tableNum - 1;
-		if(arr[table][tableNum] != "---") {
+	void reservation(int selTable, String name, int tableNum) {
+		if(arr[selTable][tableNum] != "---") {
 			System.out.println("이미 예약 된 좌석입니다.");
 		} else {
-			arr[table][tableNum] = name;			
+			arr[selTable][tableNum] = name;			
+		}
+	}
+	
+	void cancel(int selTable, String name) {
+		int count = 0;
+		for(int i = 0; i < arr[selTable].length; i++) {
+			if(arr[selTable][i].equals(name)) {
+				count = i;
+			}
+		}
+		if(count > 0) {
+			arr[selTable][count] = "---";
+		} else {
+			System.out.println("예약자 이름을 찾을 수 없습니다.");
 		}
 	}
 }
