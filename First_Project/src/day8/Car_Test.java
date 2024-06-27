@@ -7,6 +7,8 @@ public class Car_Test {
 	
 	Car_Test() {
 		this("기본차", "하얀색", 0);
+		//this.name = "기본차";
+		//this.color = "하얀색";
 	}
 	
 	Car_Test(String name, String color, int speed) {
@@ -31,6 +33,7 @@ public class Car_Test {
 			this.speed = 200;
 		} else {
 			this.speed += speed;
+			//this.speed = this.speed + speed;
 		}
 	}
 	
@@ -40,6 +43,7 @@ public class Car_Test {
 			this.speed = 0;
 		} else {
 			this.speed -= speed;
+			//this.speed = this.speed - speed;
 		}
 	}
 	

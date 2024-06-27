@@ -10,10 +10,12 @@ public class Point3D extends Point{
 	
 	void moveUp() {
 		z += 1;
+		//z++;
 	}
 	
 	void moveDown() {
 		z -= 1;
+		//z--;
 	}
 	
 	void move(int x, int y, int z) {
