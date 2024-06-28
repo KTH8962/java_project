@@ -3,6 +3,10 @@ package day9;
 public class HumanMain2 {
 	static void humanInfo(Human h) {
 		System.out.println("이 객체는 "+ h.getClass().getSimpleName() + " 클래스 객체 입니다.");
+		// String classNamer = ""; 변수하나 만들어서 선언해도 된다.
+		// if (h instanceof Student) {System.out.println("이 객체는 Student 클래스 객체 입니다.");}
+		// if (h instanceof Worker) {System.out.println("이 객체는 Worker 클래스 객체 입니다.");}
+		// if (h instanceof Researcher) {System.out.println("이 객체는 Researcher 클래스 객체 입니다.");}
 	}
 	
 	static void fruitBox(Fruit f) {
