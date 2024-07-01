@@ -1,5 +1,6 @@
 package day11;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.StringTokenizer;
@@ -10,7 +11,7 @@ public class ArrayList_2_2 {
 		// TODO Auto-generated method stub
 		System.out.println("학생 이름, 학과, 학번, 학점평균 입력하세요");
 		Scanner scan = new Scanner(System.in);
-		HashMap<String, Student> list = new HashMap<String, Student>();
+		ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
 		
 		while(true) {
 			System.out.print(">> ");
@@ -18,24 +19,28 @@ public class ArrayList_2_2 {
 			if(input.equals("그만")) {
 				break;
 			} else {
-				String arr[] = input.split(",");
-				String name = arr[0];
-				String dept = arr[1];
-				String id= arr[2];
-				String grade = arr[3];
+				HashMap<String, Object> map = new HashMap<String, Object>();
+				StringTokenizer st = new StringTokenizer(input, ",");
+				String name = st.nextToken();
+				String dept = st.nextToken();
+				String id= st.nextToken();
+				String grade = st.nextToken();
 				double parseDouble = Double.parseDouble(grade);
-				//Student student = new Student(name, dept, id, parseDouble);
-				list.put(name, new Student(name, dept, id, parseDouble));
+				map.put("name",name);
+				map.put("dept",dept);
+				map.put("id",id);
+				map.put("grade",parseDouble);
+				list.add(map);
 			}			
 		}
 
 		System.out.println(list);
 		for(int i=0; i<list.size(); i++) {
 			System.out.println("----------------");
-			System.out.println("이름:"+ list.get(i).getName());
-			System.out.println("학과:"+ list.get(i).getDepartment());
-			System.out.println("학번:"+ list.get(i).getId());
-			System.out.println("학점평균:"+ list.get(i).getGrade());
+			System.out.println("이름:"+ list.get(i).get("name"));
+			System.out.println("학과:"+ list.get(i).get("dept"));
+			System.out.println("학번:"+ list.get(i).get("id"));
+			System.out.println("학점평균:"+ list.get(i).get("grade"));
 			System.out.println("----------------");
 		}
 	}

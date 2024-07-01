@@ -33,9 +33,16 @@ public class Map_3 {
 			
 		}
 		
-		System.out.println(list);
 		System.out.print("장학생 선발 학점 기준 입력 >> ");
-		int number = scan.nextInt();
+		double number = scan.nextDouble();
+		
+		for(int i=0; i < list.size(); i++) {
+			double score = (double) list.get(i).get("grade");
+			if(score >= number) {
+				System.out.print(list.get(i).get("name") + " ");
+			}
+			
+		}
 		
 	}
 
