@@ -34,7 +34,6 @@ public class ArrayList_2_2 {
 			}			
 		}
 
-		System.out.println(list);
 		for(int i=0; i<list.size(); i++) {
 			System.out.println("----------------");
 			System.out.println("이름:"+ list.get(i).get("name"));

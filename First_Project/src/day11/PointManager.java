@@ -21,21 +21,17 @@ public class PointManager {
 			} else {
 				StringTokenizer st = new StringTokenizer(info, " ");
 				String name = st.nextToken();
-				String num = st.nextToken();
-				int intNum = Integer.parseInt(num);
+				int intNum = Integer.parseInt(st.nextToken());
 				map.put("name", name);
 				map.put("num", intNum);
 				list.add(map);
-				if(list.size()>0) {
-					for(int i=0; i < list.size() - 1; i++) {
-						if(list.get(i).get("name").equals(name)) {
-							int txt = (int) list.get(i).get("num");
-							System.out.println(txt + " " + intNum);
-							list.get(i).put("num", txt+intNum);
-							list.remove(list.size( ) - 1);
-						}
-					}					
-				}
+				for(int i=0; i < list.size() - 1; i++) {
+					if(list.get(i).get("name").equals(name)) {
+						int points = (int) list.get(i).get("num");
+						list.get(i).put("num", points + intNum);
+						list.remove(list.size( ) - 1);
+					}
+				}	
 				for(int i=0; i < list.size(); i++) {					
 					System.out.print("(" + list.get(i).get("name") + "," + list.get(i).get("num") + ")");
 				}
