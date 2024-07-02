@@ -7,31 +7,64 @@ import java.util.Scanner;
 public class FruitMarket {
 	static Scanner scan  = new Scanner(System.in);
 	static void fruitFunc(int choice, int sizeCount, ArrayList<HashMap<String, Object>> list) {
-		if(sizeCount == 0) {
+		if(sizeCount == 0 && choice != 1) {
 			System.out.println("과일을 추가해주세요");
-		}
-		System.out.print("과일명 입력 : ");
-		String name = scan.next();
-		int count = 0;
-		if(choice == 2) {
-			System.out.print("개수 입력 : ");
-			count = scan.nextInt();
-		}		
-		for(int i=0; i < list.size(); i++) {
-			HashMap<String, Object> Fruit = list.get(i);
-			if(Fruit.containsValue(name)) {
-				if(choice == 2) {
-					int currentCount = (int) Fruit.get("count");
-					if(currentCount < count) {
-						System.out.println("개수가 부족합니다.");
-						break;
-					} else {
-						Fruit.put("count", currentCount - count);
+		} else {			
+			HashMap<String, Object> map = new HashMap<String, Object>();
+			System.out.print("과일명 입력 : ");
+			String name = scan.next();
+			boolean nameChk = false;
+			int numChk = 0;
+			if(list.size() > 0) {				
+				for(int i=0; i < list.size(); i++) {
+					String nameType = (String) list.get(i).get("name");
+					if(nameType.equals(name)) {
+						nameChk = true;
+						numChk = i;
 					}
 				}
-				System.out.println(name + "의 현재 남은 개수는 " + Fruit.get("count") + "개 입니다.");
-			} else {
-				System.out.println(name + "는(은) 없는 과일입니다.");
+			}
+			map.put("name", name);
+			if(choice == 1 && !nameChk) {
+				System.out.print("가격 입력 : ");
+				int price = scan.nextInt();
+				map.put("price", price);
+			}
+			int count = 0;
+			
+			if((choice == 2 || choice == 3) && !nameChk) {
+				System.out.println(name + "는(은) 없는 과일입니다.");	
+				return;
+			} else if(choice == 1 && nameChk) {
+				System.out.print("개수 입력 : ");
+				count = scan.nextInt();
+				int currentCount = (int) list.get(numChk).get("num");
+				list.get(numChk).put("num", currentCount + count);
+			} else if(choice != 3) {
+				System.out.print("개수 입력 : ");
+				count = scan.nextInt();
+				if(choice == 1 && !nameChk) {
+					map.put("num", count);					
+					list.add(map);
+				}
+			}
+			
+			if(choice != 1) {
+				for(int i=0; i < list.size(); i++) {
+					HashMap<String, Object> Fruit = list.get(i);
+					if(Fruit.containsValue(name)) {
+						if(choice == 2) {
+							int currentNum = (int) Fruit.get("num");
+							if(currentNum < count) {
+								System.out.println("개수가 부족합니다.");
+								break;
+							} else {
+								Fruit.put("num", currentNum - count);
+							}
+						}
+						System.out.println(name + "의 현재 남은 개수는 " + Fruit.get("num") + "개 입니다.");
+					} 
+				}				
 			}
 		}
 	}
@@ -45,32 +78,7 @@ public class FruitMarket {
 			System.out.print("메뉴 선택 : ");
 			int choice = scan.nextInt();
 			if(choice == 1) {
-				HashMap<String, Object> map = new HashMap<String, Object>();
-				System.out.print("과일명 입력 : ");
-				String name = scan.next();
-				if(list.size() > 0) {
-					for(HashMap<String, Object> str : list) {
-						
-					}
-				}
-				map.put("name", name);
-				
-				System.out.print("가격 입력 : ");
-				int price = scan.nextInt();
-				if(price < 0) {
-					System.out.println("음수 입력은 불가능");
-					continue;
-				}
-				map.put("price", price);
-				
-				System.out.print("개수 입력 : ");
-				int count = scan.nextInt();
-				if(count < 0) {
-					System.out.println("음수 입력은 불가능");
-					continue;
-				}
-				map.put("count", count);
-				list.add(map);
+				fruitFunc(choice, list.size(), list);
 			} else if(choice == 2) {
 				fruitFunc(choice, list.size(), list);
 			} else if(choice == 3) {
