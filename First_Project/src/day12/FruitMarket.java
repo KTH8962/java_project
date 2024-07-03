@@ -28,6 +28,10 @@ public class FruitMarket {
 			if(choice == 1 && !nameChk) {
 				System.out.print("가격 입력 : ");
 				int price = scan.nextInt();
+				if(price < 0) {
+					System.out.println("음수 입력은 불가능합니다.");
+					return;
+				}
 				map.put("price", price);
 			}
 			int count = 0;
@@ -38,11 +42,21 @@ public class FruitMarket {
 			} else if(choice == 1 && nameChk) {
 				System.out.print("개수 입력 : ");
 				count = scan.nextInt();
+				if(count < 0) {
+					System.out.println("음수 입력은 불가능합니다.");
+					return;
+				}
+				
 				int currentCount = (int) list.get(numChk).get("num");
 				list.get(numChk).put("num", currentCount + count);
 			} else if(choice != 3) {
 				System.out.print("개수 입력 : ");
 				count = scan.nextInt();
+				if(count < 0) {
+					System.out.println("음수 입력은 불가능합니다.");
+					return;
+				}
+				
 				if(choice == 1 && !nameChk) {
 					map.put("num", count);					
 					list.add(map);
@@ -56,7 +70,7 @@ public class FruitMarket {
 						if(choice == 2) {
 							int currentNum = (int) Fruit.get("num");
 							if(currentNum < count) {
-								System.out.println("개수가 부족합니다.");
+								System.out.println((count - currentNum) + "개 부족합니다. 판개 가능 개수는 " + currentNum + "개 입니다.");
 								break;
 							} else {
 								Fruit.put("num", currentNum - count);
@@ -68,7 +82,7 @@ public class FruitMarket {
 			}
 		}
 	}
-
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub		
 		ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
@@ -82,8 +96,7 @@ public class FruitMarket {
 			} else if(choice == 2) {
 				fruitFunc(choice, list.size(), list);
 			} else if(choice == 3) {
-				fruitFunc(choice, list.size(), list);
-				
+				fruitFunc(choice, list.size(), list);				
 			} else {
 				System.out.println("종료되었습니다.");
 				break;
