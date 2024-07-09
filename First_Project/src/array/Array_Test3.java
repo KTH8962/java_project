@@ -8,14 +8,23 @@ public class Array_Test3 {
 		int arrLength = arr.length;
 		int arrLength2 = arr.length - 1;
 
-		for (int i = 0; i < arrLength; i++) {
-			for (int j = 0; j <arrLength; j++) {
-				if(i != arrLength2 && j != arrLength2) {
-					arr[i][j] = (int) (Math.random() * 9 + 1);
-					arr[i][arrLength2] += arr[i][j];
-					arr[arrLength2][j] += arr[i][j];
-					arr[arrLength2][arrLength2] += arr[i][j];
-				}				
+//		for (int i = 0; i < arrLength; i++) {
+//			for (int j = 0; j <arrLength; j++) {
+//				if(i != arrLength2 && j != arrLength2) {
+//					arr[i][j] = (int) (Math.random() * 9 + 1);
+//					arr[i][arrLength2] += arr[i][j];
+//					arr[arrLength2][j] += arr[i][j];
+//					arr[arrLength2][arrLength2] += arr[i][j];
+//				}				
+//			}
+//		}
+		
+		for (int i = 0; i < arrLength2; i++) {
+			for (int j = 0; j <arrLength2; j++) {
+				arr[i][j] = (int) (Math.random() * 9 + 1);
+				arr[i][arrLength2] += arr[i][j];
+				arr[arrLength2][j] += arr[i][j];
+				arr[arrLength2][arrLength2] += arr[i][j];			
 			}
 		}
 
