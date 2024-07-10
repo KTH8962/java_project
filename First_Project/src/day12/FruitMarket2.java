@@ -5,11 +5,22 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class FruitMarket2 {
+	public static ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+	public static Scanner scan = new Scanner(System.in);
+	
+	public static HashMap<String, Object> fruitSearch(String inputName) {
+		for(int i=0; i < list.size(); i++) {
+			String name = (String) list.get(i).get("name");
+			if(inputName.equals(name)) {
+				return list.get(i);
+			}
+		}
+		return new HashMap<String, Object>();
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Scanner scan = new Scanner(System.in);
-		ArrayList<HashMap<String, Object>> list = new ArrayList<HashMap<String, Object>>();
+		
 		while(true) {
 			System.out.println("== (1)과일 추가 (2) 판매 (3) 개수확인 (그외) 종료");
 			HashMap<String, Object> map = new HashMap<String, Object>();
