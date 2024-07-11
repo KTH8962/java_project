@@ -4,10 +4,13 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Java_Test7 {
+	
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		int arr[] = new int[6];
+		boolean inputFlag = false;
+		int checkNum = 0;
 		
 		for(int i=0; i < arr.length; i++) {
 			System.out.print((i+1) + "번째 숫자 입력 : ");
@@ -17,11 +20,28 @@ public class Java_Test7 {
 			for(int j=0; j <= i; j++) {
 				if(arr[j] == inputNum) {
 					cntCount++;
-					if(cntCount > 2) {
-						System.out.println("중복 된 값은 2개까지만 허용합니다. 다른 숫자를 입력해 주세요.");
-						System.out.println("현재 입력 되어있는 숫자 " + Arrays.toString(arr));
-						i--;
-						break;
+					if(inputFlag) {
+						if(checkNum == inputNum) {
+							System.out.println("중복 된 값은 2개까지만 허용합니다. 다른 숫자를 입력해 주세요.");
+							System.out.println("현재 입력 되어있는 숫자 " + Arrays.toString(arr));
+							i--;
+							break;
+						} else if(cntCount > 1){
+							System.out.println("중복은 한번만 허용됩니다.");
+							i--;
+							break;
+						}
+					} else {
+						if(cntCount > 2) {
+							System.out.println("중복 된 값은 2개까지만 허용합니다. 다른 숫자를 입력해 주세요.");
+							System.out.println("현재 입력 되어있는 숫자 " + Arrays.toString(arr));
+							i--;
+							break;
+						}
+					}
+					if(cntCount == 2) {
+						inputFlag = true;
+						checkNum = inputNum;
 					}
 				}
 			}
