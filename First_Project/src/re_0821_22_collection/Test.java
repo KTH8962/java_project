@@ -34,4 +34,14 @@ public class Test {
 		person.put("addr", human.getAddr());
 		return person;
 	}
+	
+	static Human maxAge(ArrayList<Human> list) {
+		int index = 0;
+		for(int i=1; i < list.size(); i++) {
+			if(list.get(i).getAge() > list.get(index).getAge()) {
+				index = i;
+			}
+		}
+		return list.get(index);
+	}
 }
