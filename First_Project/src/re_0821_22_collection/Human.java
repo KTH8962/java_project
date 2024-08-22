@@ -1,4 +1,4 @@
-package re_0821_collection;
+package re_0821_22_collection;
 
 public class Human {
 	private String name;

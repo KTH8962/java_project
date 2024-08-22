@@ -1,6 +1,7 @@
-package re_0821_collection;
+package re_0821_22_collection;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Test {
 	static ArrayList<Human> callHuman() {
@@ -19,5 +20,18 @@ public class Test {
 	static String call() {
 		String name = "안녕하세요";
 		return name;
+	}
+	
+	static int[] callArray() {
+		int t[] = {1, 3, 5, 7, 9};
+		return t;
+	}
+	
+	static HashMap<String, Object> callPerson(Human human){
+		HashMap<String, Object> person = new HashMap<String, Object>(); 
+		person.put("name", human.getName());
+		person.put("age", human.getAge());
+		person.put("addr", human.getAddr());
+		return person;
 	}
 }

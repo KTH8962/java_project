@@ -1,6 +1,8 @@
-package re_0821_collection;
+package re_0821_22_collection;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 
 public class Collection2 {
 
@@ -29,11 +31,20 @@ public class Collection2 {
 		ArrayList<Human> list = Test.callHuman();
 		
 		for(Human a : list) {
-			System.out.println(a.getName());
+			//System.out.println(a.getName());
 		}
 		
 		String test = Test.call();
-		System.out.println(test);
+		//System.out.println(test);
+		
+		int arr[] = Test.callArray();
+		// [1, 3, 5, 7, 9]
+		//System.out.println(Arrays.toString(arr));
+		
+		HashMap<String, Object> map = Test.callPerson(hong);
+		System.out.println(map.get("name"));
+		System.out.println(map.get("age"));
+		System.out.println(map.get("addr"));
 	}
 
 }
